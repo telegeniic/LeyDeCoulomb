@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Simulador Ley de Coulumb</h1>
+        <p class="lead">En este simulador, podremos calcular la fuerza electrica que se ejerce en una carga</p>
+        <hr class="my-4">
+        <p>Favor de rellenar los campos a utilizar y marcarlos con Agregar esta carga Para poder hacer los calculos correctos, asi como marcar cual sera la carga principal, en la cual se haran los calculos</p> 
+        <a class="btn btn-primary btn-lg" onclick="Calcular()" role="button">Calcular</a>
+        <h2 style="display: none;" id="Resultado"></h2>
+      </div>
+
+    
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body" id="Carga1">
+                  <h5 class="card-title">Carga 1</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Magnitud de nuestra carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Carga" name="sizeCharge">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Coulumb</span>
+                    </div>
+                  </div>
+                  <h6 class="card-subtitle mb-2 text-muted">Posicion de Nuestra Carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="X" name="xPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">X</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Y" name="yPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Y</span>
+                    </div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="carga1" checked>
+                    <label class="form-check-label" for="inlineRadio1">Carga principal</label>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body" id="Carga2">
+                  <h5 class="card-title">Carga 2</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Magnitud de nuestra carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Carga" name="sizeCharge">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Coulumb</span>
+                    </div>
+                  </div>
+                  <h6 class="card-subtitle mb-2 text-muted">Posicion de Nuestra Carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="X" name="xPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">X</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Y" name="yPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Y</span>
+                    </div>
+                  </div>
+                  
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="carga2">
+                    <label class="form-check-label" for="inlineRadio1">Carga principal</label>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body" id="Carga3">
+                  <h5 class="card-title">Carga 3</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Magnitud de nuestra carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Carga" name="sizeCharge">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Coulumb</span>
+                    </div>
+                  </div>
+                  <h6 class="card-subtitle mb-2 text-muted">Posicion de Nuestra Carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="X" name="xPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">X</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Y" name="yPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Y</span>
+                    </div>
+                  </div>
+                  
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="carga3">
+                    <label class="form-check-label" for="inlineRadio1">Carga principal</label>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body" id="Carga4">
+                      <h5 class="card-title">Carga 4</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Magnitud de nuestra carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Carga" name="sizeCharge">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Coulumb</span>
+                    </div>
+                  </div>
+                  <h6 class="card-subtitle mb-2 text-muted">Posicion de Nuestra Carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="X" name="xPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">X</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Y" name="yPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Y</span>
+                    </div>
+                  </div>
+                  
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="carga4">
+                    <label class="form-check-label" for="inlineRadio1">Carga principal</label>
+                  </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body" id="Carga5">
+                      <h5 class="card-title">Carga 5</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Magnitud de nuestra carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Carga" name="sizeCharge">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Coulumb</span>
+                    </div>
+                  </div>
+                  <h6 class="card-subtitle mb-2 text-muted">Posicion de Nuestra Carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="X" name="xPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">X</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Y" name="yPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Y</span>
+                    </div>
+                  </div>
+                  
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="carga5">
+                    <label class="form-check-label" for="inlineRadio1">Carga principal</label>
+                  </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body" id="Carga6">
+                      <h5 class="card-title">Carga 6</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Magnitud de nuestra carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Carga" name="sizeCharge">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Coulumb</span>
+                    </div>
+                  </div>
+                  <h6 class="card-subtitle mb-2 text-muted">Posicion de Nuestra Carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="X" name="xPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">X</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Y" name="yPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Y</span>
+                    </div>
+                  </div>
+                  
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="carga6">
+                    <label class="form-check-label" for="inlineRadio1">Carga principal</label>
+                  </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body" id="Carga7">
+                      <h5 class="card-title">Carga 7</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Magnitud de nuestra carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Carga" name="sizeCharge">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Coulumb</span>
+                    </div>
+                  </div>
+                  <h6 class="card-subtitle mb-2 text-muted">Posicion de Nuestra Carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="X" name="xPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">X</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Y" name="yPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Y</span>
+                    </div>
+                  </div>
+                  
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="carga7">
+                    <label class="form-check-label" for="inlineRadio1">Carga principal</label>
+                  </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body" id="Carga8">
+                      <h5 class="card-title">Carga 8</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Magnitud de nuestra carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Carga" name="sizeCharge">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Coulumb</span>
+                    </div>
+                  </div>
+                  <h6 class="card-subtitle mb-2 text-muted">Posicion de Nuestra Carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="X" name="xPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">X</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Y" name="yPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Y</span>
+                    </div>
+                  </div>
+                  
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="carga8">
+                    <label class="form-check-label" for="inlineRadio1">Carga principal</label>
+                  </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body" id="Carga9">
+                      <h5 class="card-title">Carga 9</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Magnitud de nuestra carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Carga" name="sizeCharge">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Coulumb</span>
+                    </div>
+                  </div>
+                  <h6 class="card-subtitle mb-2 text-muted">Posicion de Nuestra Carga</h6>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="X" name="xPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">X</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Y" name="yPosition">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">Y</span>
+                    </div>
+                  </div>
+                  
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="carga9">
+                    <label class="form-check-label" for="inlineRadio1">Carga principal</label>
+                  </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+      </div>
+</body>
+<script src="LeydeCoulumb.js"></script>
+</html>
